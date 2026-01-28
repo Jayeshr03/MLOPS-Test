@@ -1,6 +1,6 @@
 # MLOPS-Test
 
-Author - Jayesh R 
+Author - Jayesh R (jayeshr03@gmail.com)
 
 This repo includes my MLOPS knowledge with notes and Projects.
 
@@ -37,6 +37,21 @@ Git is a VSC/SCM
 
 - Git and Github is very important for MLops and we need to version all the data set to ML to train.
 - Collobration is needed and git/github is useful
+
+Github arc -
+
+Workspace
+Local Repo
+Staging
+Remote Repo
+
+Example -
+
+Consider shopping veggis and consider workspace as the shop and Staging as the veggies bag where you can put or remove the veggies and consider Local Repo has the house/fridge where you can do whatever cook throw etc and Remote Repo as the external storage area to keep the vegggies and you can share that with your family and friends.
+
+Consider that you have DG and ESA files in your laptop in order to git to see you have allow it and it takes this files as untracked files and when pushed to staging it's tracked know git knows it has some files to commit abd then once confirmed the git is commited to Local Repo and push it Remote Repo where we know that the issue of it being corrupted is elminated.
+
+
 
   
 
