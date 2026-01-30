@@ -460,3 +460,42 @@ Now we can do a remote repo -
 Now we will push to a repo
 
 We get the https and then do git remote add origin
+
+Now created a friends repo 
+
+
+admin@admins-MacBook-Pro Git-Friend-Repo % git add .
+admin@admins-MacBook-Pro Git-Friend-Repo % git commit -m "added friend work"
+[main 931432b] added friend work
+ 1 file changed, 3 insertions(+)
+ create mode 100644 addednew.py
+admin@admins-MacBook-Pro Git-Friend-Repo % git branch     
+* main
+admin@admins-MacBook-Pro Git-Friend-Repo % git push commit main             
+fatal: 'commit' does not appear to be a git repository
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+admin@admins-MacBook-Pro Git-Friend-Repo % git push origin main             
+Enumerating objects: 4, done.
+Counting objects: 100% (4/4), done.
+Delta compression using up to 14 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 286 bytes | 286.00 KiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To github.com:Jayeshr03/Git-Friend-Repo.git
+   e1b40eb..931432b  main -> main
+admin@admins-MacBook-Pro Git-Friend-Repo % git pull origin main
+From github.com:Jayeshr03/Git-Friend-Repo
+ * branch            main       -> FETCH_HEAD
+Updating 931432b..186866d
+Fast-forward
+ example.txt | 1 +
+ 1 file changed, 1 insertion(+)
+ create mode 100644 example.txt
+
+
+Basically Pull means all the updates will be updated
+and push will push all the changes made.
