@@ -164,7 +164,299 @@ index 8268192..e1eb692 100644
 @@ -4,6 +4,6 @@ print("Thanks")
  
  print("Adding second line for reference")
+
+
+
+If we have to checkout or go back to a line of commond -
+
+admin@admins-MacBook-Pro Code % git log --oneline 
+8d37da4 (HEAD -> main) 3rd commit - gitignore
+3596935 2st commit
+41f1d79 1st commit
+admin@admins-MacBook-Pro Code %** git checkout 3596935**
+M       first.py
+Note: switching to '3596935'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+HEAD is now at 3596935 2st commit
  
 -
 +print("Bakwass")
 
+
+NOW BRANCHING - 
+
+admin@admins-MacBook-Pro Code % git log --oneline
+1f45d7e (HEAD -> main) 7 -second commit  main work after helper and branching
+86c36bd 6 - main work after helper and branching
+8d37da4 3rd commit - gitignore
+3596935 2st commit
+41f1d79 1st commit
+
+Going to a Helper branch -
+
+admin@admins-MacBook-Pro Code % **git checkout helper**
+Switched to branch 'helper'
+admin@admins-MacBook-Pro Code % git log --online
+fatal: unrecognized argument: --online
+admin@admins-MacBook-Pro Code % git log --oneline
+1ee5274 (HEAD -> helper) 5 - helper work finished and branching
+9af64cb 4 - helper work started and branching
+8d37da4 3rd commit - gitignore
+3596935 2st commit
+41f1d79 1st commit
+
+Now, if we are in the main and see log it only show the commit made there and once you come to branch it shows only commit made there 
+MAIN _ (admin@admins-MacBook-Pro Code % git log --oneline
+1f45d7e (HEAD -> main) 7 -second commit  main work after helper and branching
+86c36bd 6 - main work after helper and branching
+8d37da4 3rd commit - gitignore
+3596935 2st commit
+41f1d79 1st commit     Now this is in main)
+
+HELPER - (admin@admins-MacBook-Pro Code % git log --oneline
+1ee5274 (HEAD -> helper) 5 - helper work finished and branching
+9af64cb 4 - helper work started and branching
+8d37da4 3rd commit - gitignore
+3596935 2st commit
+41f1d79 1st commit - Now this is in branch helper)
+
+To retify that we have --all which shows all.
+
+
+admin@admins-MacBook-Pro Code % git log --oneline --all
+1f45d7e (main) 7 -second commit  main work after helper and branching
+86c36bd 6 - main work after helper and branching
+1ee5274 (HEAD -> helper) 5 - helper work finished and branching
+9af64cb 4 - helper work started and branching
+8d37da4 3rd commit - gitignore
+3596935 2st commit
+41f1d79 1st commit
+
+
+This is shown for full branching -
+
+admin@admins-MacBook-Pro Code % **git log --oneline --all --graph**
+* 1f45d7e (main) 7 -second commit  main work after helper and branching
+* 86c36bd 6 - main work after helper and branching
+| * 1ee5274 (HEAD -> helper) 5 - helper work finished and branching
+| * 9af64cb 4 - helper work started and branching
+|/  
+* 8d37da4 3rd commit - gitignore
+* 3596935 2st commit
+* 41f1d79 1st commit
+
+NWO LET"S DELETE A BRANCH --
+
+admin@admins-MacBook-Pro Code % ****git branch -d helper ****
+error: Cannot delete branch 'helper' checked out at '/Users/admin/Documents/Code'
+
+It's throwing error because we are in that branch and Github realease we havent merged it.
+
+admin@admins-MacBook-Pro Code % git checkout main                                       
+Switched to branch 'main'
+
+-D we delete it - it's like --force.
+admin@admins-MacBook-Pro Code % git branch -D helper 
+Deleted branch helper (was 1ee5274).
+
+<img width="3036" height="1056" alt="image" src="https://github.com/user-attachments/assets/392b7081-6d80-4752-887a-28c5e7ccf8c2" />
+
+Now we create HELPER 2 to study **MERGING**
+
+<img width="3182" height="1394" alt="image" src="https://github.com/user-attachments/assets/e5f58831-a4b3-4a23-9b23-a9df959c42c7" />
+
+NOW WE HAVE DONE MERGING 
+admin@admins-MacBook-Pro Code % git checkout main  
+Switched to branch 'main'
+admin@admins-MacBook-Pro Code % git merge main   
+Already up to date.
+admin@admins-MacBook-Pro Code % git merge helper2
+Updating 1f45d7e..dc5f665
+Fast-forward
+ helper2.py | 3 +++
+ 1 file changed, 3 insertions(+)
+ create mode 100644 helper2.py
+admin@admins-MacBook-Pro Code % git log --oneline
+dc5f665 (HEAD -> main, helper2) 9 - second commit of helper2
+bbb7fa7 8 - Firsdt commit of helper2
+1f45d7e 7 -second commit  main work after helper and branching
+86c36bd 6 - main work after helper and branching
+8d37da4 3rd commit - gitignore
+3596935 2st commit
+41f1d79 1st commit
+admin@admins-MacBook-Pro Code % 
+
+ONLY WITH MAIN we have merge.
+
+NOW WE HAVE THE BRANCH AND COMMIT TO MAIN
+
+NOW WE DO A DIFFCULT MERGE WHERE 
+
+<img width="2350" height="1196" alt="image" src="https://github.com/user-attachments/assets/43078c53-259b-4c7e-80b0-d5bac0e27346" />
+
+AS you can see the after 7 we didn't have any merging so it was easy so we make it diffcult  by creeating a coimmit in 9th to branch 10 and 11 to main.
+
+I made a mistake and created both on branch so i did - 
+
+**git reset --soft HEAD~1** — what it means
+
+1️⃣ git reset
+
+Moves Git’s HEAD pointer (the current commit) backward.
+
+Think of it as:
+
+“Pretend the last commit never happened.”
+
+2️⃣ --soft
+
+This is the important part.
+
+--soft means:
+
+❌ Commit is removed
+
+✅ All changes are kept
+
+✅ Changes stay staged (in the index)
+
+So nothing is lost.
+
+3️⃣ HEAD~1
+
+Means:
+
+“One commit before the current commit”
+
+If your history is:
+
+A → B → C (HEAD)
+
+
+HEAD~1 points to:
+
+A → B (HEAD)
+
+
+Commit C is removed.
+
+What actually happens after the command
+Before:
+Commit 1
+Commit 2   ← HEAD
+
+After git reset --soft HEAD~1:
+Commit 1   ← HEAD
+
+
+But:
+
+Files from Commit 2 are still there
+
+They are staged
+
+git status will show:
+
+Changes to be committed
+
+When should you use this?
+
+Use it when:
+
+You committed too early
+
+You want to edit files
+
+You want to combine commits
+
+You want to change the commit message
+
+Quick comparison 🧠
+Command	Commit removed	Changes kept	Staged?
+--soft	✅	✅	✅
+--mixed (default)	✅	✅	❌
+--hard	✅	❌	❌
+
+<img width="3384" height="1184" alt="image" src="https://github.com/user-attachments/assets/31ccef24-808f-4547-9289-b08a67f3196f" />
+
+We have 10 as branch and 11 in main --
+
+We have conflit I have code in same lines for both(one from branch and one when done from main) so when merging 
+
+admin@admins-MacBook-Pro Code % git merge final
+Auto-merging first.py
+CONFLICT (content): Merge conflict in first.py
+Automatic merge failed; fix conflicts and then commit the result.
+
+<<<<<<< HEAD
+print("FINAL STUPID")
+=======
+print( "AFTER BRANCHING FINAL")
+>>>>>>> final
+>>>>>>
+Get this which  tells and gives options 
+
+<img width="1270" height="368" alt="image" src="https://github.com/user-attachments/assets/36930c16-2aec-4c08-aef5-f7dd662de492" />
+
+
+So this tells that current that is main or incoming that is branch or both should stay or compare
+
+If I did both stay --
+
+admin@admins-MacBook-Pro Code % git log --oneline --all --graph                 
+***** 17ccc64 (HEAD -> main) 11 - FINAL commit of helper2
+| * 95b6e06 (final) 10 - firsFINAL commit of helper2
+| * 8b1eeb3 10 - firsFINAL commit of helper2
+| * e031b94 10 - firsFINAL commit of helper2************
+|/  
+* dc5f665 9 - second commit of helper2
+* bbb7fa7 8 - Firsdt commit of helper2
+* 1f45d7e 7 -second commit  main work after helper and branching
+* 86c36bd 6 - main work after helper and branching
+* 8d37da4 3rd commit - gitignore
+* 3596935 2st commit
+* 41f1d79 1st commit
+* 
+admin@admins-MacBook-Pro Code % git merge final
+Auto-merging first.py
+CONFLICT (content): Merge conflict in first.py
+Automatic merge failed; fix conflicts and then commit the re sult.
+admin@admins-MacBook-Pro Code % git log --oneline
+**17ccc64 (HEAD -> main) 11 - FINAL commit of helper2
+dc5f665 9 - second commit of helper2******
+bbb7fa7 8 - Firsdt commit of helper2
+1f45d7e 7 -second commit  main work after helper and branching
+86c36bd 6 - main work after helper and branching
+8d37da4 3rd commit - gitignore
+3596935 2st commit
+41f1d79 1st commit
+
+  If you see the 10th commit is now merged to 11th
+
+****REMOTE REPO
+********  
+
+Still now we worked till commit.
+
+Now we can do a remote repo -
+
+<img width="3084" height="1638" alt="image" src="https://github.com/user-attachments/assets/d0809aa4-a4e7-41b7-9b50-d38dea8acf48" />
+
+Now we will push to a repo
+
+We get the https and then do git remote add origin
