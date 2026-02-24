@@ -499,3 +499,7 @@ Fast-forward
 
 Basically Pull means all the updates will be updated
 and push will push all the changes made.
+
+
+GIT TAGGING 
+
